@@ -9,6 +9,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1;
 }
 
 .header__logo {
@@ -36,70 +40,92 @@ button {
     cursor: pointer;
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 15px;
-    transition: background-color, box-shadow 0.3s ease-in;
-  }
+}
 
-  .about {
+.about {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 115px 0;
-    background: url(/img/back.png) no-repeat;
+    background: url(../img/back.png) no-repeat;
     background-position: center;
     background-size: cover;
-  }
+}
 
-  .about__info {
+.about__info {
     max-width: 550px;
-  }
+}
 
-  .about__sun {
+.about__info button::after {
+    font: var(--fa-font-solid);
+    content: "\f054";
+}
+
+.about__img {
+    position: relative;
+}
+
+.about__sun {
     width: 100px;
     height: 100px;
-  }
+    animation: rotation 10s infinite linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-  .about__solar-panel {
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.about__solar-panel {
     width: 500px;
-  }
+}
 
-  .about h1 {
+.about h1 {
     font-size: 70px;
     line-height: 76px;
-  }
-  
-  .about p {
+}
+
+.about p {
     font-size: 18px;
     line-height: 30px;
     opacity: 0.8;
-  }
+}
 
- .form__container {
+.form__container {
     width: 550px;
- }
+}
 
- .form {
+.form {
     display: flex;
     justify-content: center;
     background-color: #1D263A;
     color: #ffffff;
     padding: 115px 0 115px 0;
     text-align: center;
- }
+}
 
- .form h1 {
+.form h1 {
     font-size: 48px;
- }
+}
 
- .form p {
+.form p {
     font-size: 18px;
     opacity: 0.65;
- }
+}
 
- .form__group {
+.form__group {
     display: flex;
     flex-direction: column;
     text-align: left;
- }
+}
 
 .form form {
     display: grid;
@@ -113,7 +139,8 @@ button {
     margin-bottom: 15px;
 }
 
-.form input, .form select {
+.form input,
+.form select {
     font-size: 18px;
     color: #213053;
     height: 60px;
@@ -140,6 +167,7 @@ input {
 button:hover {
     background-color: #f6980c;
     box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+    transition: background-color, box-shadow 0.3s ease-in;
 }
 
 footer {
@@ -180,3 +208,76 @@ footer {
 .footer__links li {
     margin-bottom: 15px;
 }
+
+@media (max-width: 720px) {
+
+    header, .about, .form, footer {
+        padding: 20px;
+    }
+
+    .header__logo {
+        height: 20px;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .form {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .about h1,
+    .form h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .about__solar-panel {
+        width: 280px;
+    }
+
+    .about__sun {
+        width: 75px;
+        height: 75px;
+    }
+
+    footer {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .footer__container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    header, .about, .form, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about {
+        padding-top: 115px;
+        padding-bottom: 115px;
+    }
+
+    .about h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .about__solar-panel {
+        width: 280px;
+    }
+
+    .about__sun {
+        width: 75px;
+        height: 75px;
+    }
+
+}
+
